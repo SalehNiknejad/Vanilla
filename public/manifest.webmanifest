@@ -1,16 +1,26 @@
 {
-  "name": "Vanilla",
-  "short_name": "Vanilla",
-  "description": "Recipe discovery app with ingredient-based cooking suggestions.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#fff8fa",
-  "theme_color": "#f4b0bd",
-  "orientation": "portrait",
-  "lang": "fa",
-  "dir": "rtl",
-  "icons": [
-    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
-    { "src": "/icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "maskable" }
-  ]
+    "name": "Vanilla",
+    "short_name": "Vanilla",
+    "description": "Recipe discovery app with ingredient-based cooking suggestions.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff8fa",
+    "theme_color": "#f4b0bd",
+    "orientation": "portrait",
+    "lang": "fa",
+    "dir": "rtl",
+    "icons": [
+        {
+            "src": "/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "/icon.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "maskable"
+        }
+    ]
 }
