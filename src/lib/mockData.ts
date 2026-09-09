@@ -1,0 +1,246 @@
+import { Category, Cuisine, Ingredient, Recipe } from "../types";
+
+export const categories: Category[] = [
+  { id: "breakfast", name: "صبحانه", emoji: "🥐", slug: "breakfast" },
+  { id: "lunch", name: "ناهار", emoji: "🍲", slug: "lunch" },
+  { id: "dinner", name: "شام", emoji: "🍽️", slug: "dinner" },
+  { id: "dessert", name: "دسر", emoji: "🍰", slug: "dessert" },
+  { id: "cake", name: "کیک", emoji: "🎂", slug: "cake" },
+  { id: "drink", name: "نوشیدنی", emoji: "🥤", slug: "drink" },
+  { id: "snack", name: "میان‌وعده", emoji: "🥨", slug: "snack" },
+  { id: "rice", name: "غذای برنجی", emoji: "🍚", slug: "rice" },
+  { id: "bread", name: "غذای نونی", emoji: "🥖", slug: "bread" },
+  { id: "salad", name: "سالاد", emoji: "🥗", slug: "salad" },
+  { id: "soup", name: "سوپ", emoji: "🍜", slug: "soup" },
+];
+
+export const cuisines: Cuisine[] = [
+  { id: "iranian", name: "ایرانی", slug: "iranian" },
+  { id: "asian", name: "آسیایی", slug: "asian" },
+  { id: "italian", name: "ایتالیایی", slug: "italian" },
+  { id: "mexican", name: "مکزیکی", slug: "mexican" },
+  { id: "indian", name: "هندی", slug: "indian" },
+  { id: "japanese", name: "ژاپنی", slug: "japanese" },
+  { id: "korean", name: "کره‌ای", slug: "korean" },
+  { id: "french", name: "فرانسوی", slug: "french" },
+  { id: "mediterranean", name: "مدیترانه‌ای", slug: "mediterranean" },
+  { id: "american", name: "آمریکایی", slug: "american" },
+];
+
+export const ingredients: Ingredient[] = [
+  { id: "chicken", name: "مرغ", emoji: "🍗" },
+  { id: "onion", name: "پیاز", emoji: "🧅" },
+  { id: "tomato", name: "گوجه", emoji: "🍅" },
+  { id: "potato", name: "سیب‌زمینی", emoji: "🥔" },
+  { id: "egg", name: "تخم مرغ", emoji: "🥚" },
+  { id: "cheese", name: "پنیر", emoji: "🧀" },
+  { id: "rice", name: "برنج", emoji: "🍚" },
+  { id: "bread", name: "نان", emoji: "🥖" },
+  { id: "carrot", name: "هویج", emoji: "🥕" },
+  { id: "milk", name: "شیر", emoji: "🥛" },
+  { id: "butter", name: "کره", emoji: "🧈" },
+  { id: "flour", name: "آرد", emoji: "🌾" },
+  { id: "sugar", name: "شکر", emoji: "🍬" },
+  { id: "chocolate", name: "شکلات", emoji: "🍫" },
+  { id: "beef", name: "گوشت", emoji: "🥩" },
+];
+
+export const recipes: Recipe[] = [
+  {
+    id: "chicken-pasta",
+    title: "پاستا مرغ",
+    slug: "chicken-pasta",
+    description: "پاستای خوش‌مزه با سس گوجه و مرغ، مناسب شام آرام و راحت.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=80",
+    prepTime: 15,
+    cookTime: 25,
+    servings: 2,
+    difficulty: "متوسط",
+    cuisine: "آسیایی",
+    categories: ["شام", "غذای نونی"],
+    tags: ["سریع", "غذای خانواده"],
+    ingredients: [
+      {
+        id: "i1",
+        ingredientId: "chicken",
+        ingredientName: "مرغ",
+        amount: "500",
+        unit: "گرم",
+      },
+      {
+        id: "i2",
+        ingredientId: "onion",
+        ingredientName: "پیاز",
+        amount: "2",
+        unit: "عدد",
+      },
+      {
+        id: "i3",
+        ingredientId: "tomato",
+        ingredientName: "گوجه",
+        amount: "3",
+        unit: "عدد",
+      },
+      {
+        id: "i4",
+        ingredientId: "cheese",
+        ingredientName: "پنیر",
+        amount: "100",
+        unit: "گرم",
+      },
+    ],
+    steps: [
+      {
+        id: "s1",
+        title: "مرحله ۱",
+        description: "پیاز را خرد کنید و کمی تفت دهید.",
+      },
+      {
+        id: "s2",
+        title: "مرحله ۲",
+        description: "مرغ را اضافه کرده و تا طلایی شدن سرخ کنید.",
+      },
+      {
+        id: "s3",
+        title: "مرحله ۳",
+        description: "گوجه و پنیر را اضافه کنید و با پاستا سرو کنید.",
+      },
+    ],
+    isPublic: true,
+    author: "نوشین",
+    favorite: true,
+  },
+  {
+    id: "rice-bowl",
+    title: "ب Bowl برنجی",
+    slug: "rice-bowl",
+    description: "یک بشقاب گرم و خوش‌عطر با برنج، مرغ و سبزیجات.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=80",
+    prepTime: 20,
+    cookTime: 35,
+    servings: 3,
+    difficulty: "آسان",
+    cuisine: "ایرانی",
+    categories: ["ناهار", "غذای برنجی"],
+    tags: ["سالم", "پرپروتئین"],
+    ingredients: [
+      {
+        id: "i5",
+        ingredientId: "rice",
+        ingredientName: "برنج",
+        amount: "2",
+        unit: "پیاله",
+      },
+      {
+        id: "i6",
+        ingredientId: "chicken",
+        ingredientName: "مرغ",
+        amount: "400",
+        unit: "گرم",
+      },
+      {
+        id: "i7",
+        ingredientId: "carrot",
+        ingredientName: "هویج",
+        amount: "2",
+        unit: "عدد",
+      },
+      {
+        id: "i8",
+        ingredientId: "onion",
+        ingredientName: "پیاز",
+        amount: "1",
+        unit: "عدد",
+      },
+    ],
+    steps: [
+      {
+        id: "s4",
+        title: "مرحله ۱",
+        description: "برنج را آماده کنید و کنار بگذارید.",
+      },
+      {
+        id: "s5",
+        title: "مرحله ۲",
+        description: "مرغ و سبزیجات را با ادویه تفت دهید.",
+      },
+      {
+        id: "s6",
+        title: "مرحله ۳",
+        description: "روی برنج بگذارید و سرو کنید.",
+      },
+    ],
+    isPublic: true,
+    author: "آوا",
+    favorite: false,
+  },
+  {
+    id: "omelet",
+    title: "املت سبزیجات",
+    slug: "omelet",
+    description: "صبحانه‌ای روشن و سریع با تخم‌مرغ و سبزیجات تازه.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
+    prepTime: 10,
+    cookTime: 15,
+    servings: 2,
+    difficulty: "آسان",
+    cuisine: "مدیترانه‌ای",
+    categories: ["صبحانه"],
+    tags: ["سریع", "صبحانه"],
+    ingredients: [
+      {
+        id: "i9",
+        ingredientId: "egg",
+        ingredientName: "تخم مرغ",
+        amount: "4",
+        unit: "عدد",
+      },
+      {
+        id: "i10",
+        ingredientId: "tomato",
+        ingredientName: "گوجه",
+        amount: "1",
+        unit: "عدد",
+      },
+      {
+        id: "i11",
+        ingredientId: "cheese",
+        ingredientName: "پنیر",
+        amount: "50",
+        unit: "گرم",
+      },
+      {
+        id: "i12",
+        ingredientId: "onion",
+        ingredientName: "پیاز",
+        amount: "1/2",
+        unit: "عدد",
+      },
+    ],
+    steps: [
+      {
+        id: "s7",
+        title: "مرحله ۱",
+        description: "پیاز و گوجه را کمی سرخ کنید.",
+      },
+      {
+        id: "s8",
+        title: "مرحله ۲",
+        description: "تخم‌مرغ را اضافه کرده و هم بزنید.",
+      },
+      {
+        id: "s9",
+        title: "مرحله ۳",
+        description: "در آخر پنیر را اضافه کنید و سرو نمایید.",
+      },
+    ],
+    isPublic: true,
+    author: "لیلا",
+    favorite: true,
+  },
+];
+
+export const featuredIngredients = ingredients.slice(0, 8);
