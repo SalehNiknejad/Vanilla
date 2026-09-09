@@ -8,8 +8,10 @@ export default function ProfilePage() {
               👩‍🍳
             </div>
             <div>
-              <h2 className="text-3xl font-black text-[#352a2b]">نوشین</h2>
-              <p className="text-[#7c5f64]">noshin@vanilla.app</p>
+              <h2 className="text-3xl font-black text-[#352a2b]">
+                آوا خان آبادی قهی
+              </h2>
+              <p className="text-[#7c5f64]">Ava@vanilla.app</p>
             </div>
           </div>
           <button className="btn-primary">ویرایش پروفایل</button>
