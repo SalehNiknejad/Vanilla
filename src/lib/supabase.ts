@@ -5,6 +5,13 @@ const supabaseUrl =
 const supabaseAnonKey =
   import.meta.env.VITE_SUPABASE_ANON_KEY ?? "demo-anon-key";
 
+export const normalizePhone = (value: string) => value.replace(/\D/g, "");
+
+export const buildPhoneAuthEmail = (phone: string) => {
+  const digits = normalizePhone(phone);
+  return digits ? `${digits}@vanilla.local` : "";
+};
+
 export const supabase =
   supabaseUrl && supabaseAnonKey
     ? createClient(supabaseUrl, supabaseAnonKey, {

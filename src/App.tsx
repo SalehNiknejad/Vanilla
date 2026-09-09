@@ -11,18 +11,20 @@ import AuthPage from "./pages/AuthPage";
 
 function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/recipes" element={<RecipesPage />} />
-        <Route path="/recipes/:slug" element={<RecipeDetailPage />} />
-        <Route path="/ingredients" element={<IngredientsPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/create" element={<CreateRecipePage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-      </Route>
-      <Route path="/auth" element={<AuthPage />} />
-    </Routes>
+    <div dir="rtl" lang="fa">
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/recipes/:slug" element={<RecipeDetailPage />} />
+          <Route path="/ingredients" element={<IngredientsPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/create" element={<CreateRecipePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Route>
+        <Route path="/auth" element={<AuthPage />} />
+      </Routes>
+    </div>
   );
 }
 

@@ -1,0 +1,40 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="60" x2="430" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7F8"/>
+      <stop offset="1" stop-color="#F6DDE1"/>
+    </linearGradient>
+    <linearGradient id="cone" x1="180" y1="120" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7B6C4"/>
+      <stop offset="1" stop-color="#E98AA6"/>
+    </linearGradient>
+    <linearGradient id="petal" x1="140" y1="150" x2="350" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FEE9EE"/>
+      <stop offset="1" stop-color="#F9CFD9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+
+  <g opacity="0.75">
+    <path d="M124 164C170 120 246 93 306 109C359 123 399 156 416 206C391 188 355 176 314 177C270 178 227 189 190 216C171 230 152 246 135 266C122 246 114 205 124 164Z" fill="url(#petal)"/>
+    <path d="M360 178C392 167 421 178 439 203C423 230 389 255 342 267C309 276 283 278 256 274C298 246 329 216 360 178Z" fill="#F7C4CF"/>
+  </g>
+
+  <path d="M256 108C295 108 323 142 323 181C323 254 273 356 256 380C239 356 189 254 189 181C189 142 217 108 256 108Z" fill="url(#cone)"/>
+  <path d="M219 182C227 163 248 148 272 148C298 148 323 165 334 192C311 200 287 205 256 205C238 205 226 199 219 182Z" fill="#FFF3F6" opacity="0.8"/>
+
+  <g>
+    <path d="M256 160C239 180 197 205 178 250C161 290 174 331 208 358C182 339 160 314 153 282C145 244 164 202 201 175C220 161 238 159 256 160Z" fill="#F6CFD8"/>
+    <path d="M256 160C273 180 315 205 334 250C351 290 338 331 304 358C330 339 352 314 359 282C367 244 348 202 311 175C292 161 274 159 256 160Z" fill="#F7D5DD"/>
+  </g>
+
+  <path d="M256 228C280 228 299 247 299 271C299 295 280 314 256 314C232 314 213 295 213 271C213 247 232 228 256 228Z" fill="#FFF9FA" opacity="0.92"/>
+
+  <g opacity="0.8">
+    <circle cx="148" cy="150" r="14" fill="#F3B5C0"/>
+    <circle cx="366" cy="154" r="12" fill="#F7D7DE"/>
+    <circle cx="390" cy="358" r="16" fill="#E9A7B5"/>
+    <circle cx="122" cy="360" r="18" fill="#F2C6D2"/>
+  </g>
+</svg>

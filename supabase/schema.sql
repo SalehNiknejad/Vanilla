@@ -5,11 +5,14 @@ create extension if not exists "pgcrypto";
 
 create table if not exists public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
+  phone_number text unique,
   display_name text,
   avatar_url text,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+create index if not exists idx_profiles_phone_number on public.profiles (phone_number);
 
 create table if not exists public.categories (
   id uuid primary key default gen_random_uuid(),
@@ -113,9 +116,16 @@ security definer
 set search_path = public
 as $$
 begin
-  insert into public.profiles (id, display_name)
-  values (new.id, coalesce(new.raw_user_meta_data ->> 'full_name', split_part(new.email, '@', 1)))
-  on conflict (id) do nothing;
+  insert into public.profiles (id, display_name, phone_number)
+  values (
+    new.id,
+    coalesce(new.raw_user_meta_data ->> 'display_name', new.raw_user_meta_data ->> 'phone', split_part(new.email, '@', 1)),
+    coalesce(new.raw_user_meta_data ->> 'phone', null)
+  )
+  on conflict (id) do update set
+    display_name = coalesce(excluded.display_name, public.profiles.display_name),
+    phone_number = coalesce(excluded.phone_number, public.profiles.phone_number),
+    updated_at = now();
   return new;
 end;
 $$;
