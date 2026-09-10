@@ -172,12 +172,12 @@ export default function AuthPage() {
           </p>
         </div>
 
-        <div className="mb-4 flex justify-center rounded-full bg-[#fff4f6] p-1">
-          <div className="flex w-full max-w-[280px] rounded-full bg-[#fff4f6] p-1">
+        <div className="mb-4 flex justify-center">
+          <div className="inline-flex w-full max-w-[280px] items-center rounded-full bg-[#fff4f6] p-1">
             <button
               type="button"
               onClick={() => setMode("login")}
-              className={`flex-1 rounded-full px-3 py-2 text-sm font-semibold transition ${
+              className={`flex-1 rounded-full px-4 py-2.5 text-center text-sm font-semibold transition-all ${
                 mode === "login"
                   ? "bg-white text-[#b55d70] shadow-sm"
                   : "text-[#765a60]"
@@ -188,7 +188,7 @@ export default function AuthPage() {
             <button
               type="button"
               onClick={() => setMode("signup")}
-              className={`flex-1 rounded-full px-3 py-2 text-sm font-semibold transition ${
+              className={`flex-1 rounded-full px-4 py-2.5 text-center text-sm font-semibold transition-all ${
                 mode === "signup"
                   ? "bg-white text-[#b55d70] shadow-sm"
                   : "text-[#765a60]"
@@ -227,7 +227,7 @@ export default function AuthPage() {
               value={toPersianDigits(phone)}
               onChange={handlePhoneChange}
               className="w-full rounded-2xl border border-[#f0dfe3] bg-[#fffdfd] px-4 py-3 text-right outline-none focus:border-[#e9aeb8]"
-              placeholder="۰۹۱۲ ۳۴۵ ۶۷۸۹"
+              placeholder="۰۹۱۲۳۴۵۶۷۸۹"
             />
           </div>
 
