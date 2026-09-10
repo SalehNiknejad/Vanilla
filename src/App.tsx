@@ -3,9 +3,9 @@ import { Layout } from "./components/layout/Layout";
 import HomePage from "./pages/HomePage";
 import RecipesPage from "./pages/RecipesPage";
 import IngredientsPage from "./pages/IngredientsPage";
+import RecipeDetailPage from "./pages/RecipeDetailPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import CreateRecipePage from "./pages/CreateRecipePage";
-import RecipeDetailPage from "./pages/RecipeDetailPage";
 import ProfilePage from "./pages/ProfilePage";
 import AuthPage from "./pages/AuthPage";
 
