@@ -1,8 +1,28 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { categories, featuredIngredients, recipes } from "../lib/mockData";
 import { RecipeCard } from "../components/RecipeCard";
+import { fetchCategories, fetchIngredients, fetchRecipes } from "../lib/data";
+import { Category, Ingredient, Recipe } from "../types";
 
 export default function HomePage() {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+
+  useEffect(() => {
+    void (async () => {
+      const [categoryData, ingredientData, recipeData] = await Promise.all([
+        fetchCategories(),
+        fetchIngredients(),
+        fetchRecipes(),
+      ]);
+
+      setCategories(categoryData);
+      setIngredients(ingredientData);
+      setRecipes(recipeData);
+    })();
+  }, []);
+
   return (
     <main className="shell space-y-8 pb-28">
       <section className="card overflow-hidden p-5 md:p-8">
@@ -65,7 +85,7 @@ export default function HomePage() {
         </div>
 
         <div className="-mx-1 flex gap-3 overflow-x-auto pb-2">
-          {featuredIngredients.map((ingredient) => (
+          {ingredients.slice(0, 8).map((ingredient) => (
             <button
               key={ingredient.id}
               className="card min-w-[110px] shrink-0 p-3 text-center transition hover:-translate-y-1"

@@ -1,13 +1,22 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { buildPhoneAuthEmail, supabase } from "../lib/supabase";
 
 export default function AuthPage() {
+  const navigate = useNavigate();
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    void supabase.auth.getSession().then(({ data }) => {
+      if (data.session) {
+        navigate("/", { replace: true });
+      }
+    });
+  }, [navigate]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,7 +34,7 @@ export default function AuthPage() {
 
     try {
       if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email: authEmail,
           password,
           options: {
@@ -37,14 +46,34 @@ export default function AuthPage() {
         });
 
         if (error) throw error;
-        setMessage("حساب ساخته شد. حالا می‌توانید وارد شوید.");
+
+        if (data.session) {
+          navigate("/", { replace: true });
+          return;
+        }
+
+        const loginResult = await supabase.auth.signInWithPassword({
+          email: authEmail,
+          password,
+        });
+
+        if (loginResult.error) throw loginResult.error;
+
+        setMessage("حساب ساخته شد و وارد شدید.");
+        navigate("/", { replace: true });
       } else {
-        const { error } = await supabase.auth.signInWithPassword({
+        const { data, error } = await supabase.auth.signInWithPassword({
           email: authEmail,
           password,
         });
 
         if (error) throw error;
+
+        if (data.session) {
+          navigate("/", { replace: true });
+          return;
+        }
+
         setMessage("ورود با موفقیت انجام شد.");
       }
     } catch (error) {

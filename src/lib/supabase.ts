@@ -9,7 +9,7 @@ export const normalizePhone = (value: string) => value.replace(/\D/g, "");
 
 export const buildPhoneAuthEmail = (phone: string) => {
   const digits = normalizePhone(phone);
-  return digits ? `${digits}@vanilla.local` : "";
+  return digits ? `${digits}@vanilla.app` : "";
 };
 
 export const supabase =

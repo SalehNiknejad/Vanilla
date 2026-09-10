@@ -1,6 +1,14 @@
-import { recipes } from "../lib/mockData";
+import { useEffect, useState } from "react";
+import { fetchRecipes } from "../lib/data";
+import { Recipe } from "../types";
 
 export default function FavoritesPage() {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+
+  useEffect(() => {
+    void fetchRecipes().then(setRecipes);
+  }, []);
+
   const favorites = recipes.filter((recipe) => recipe.favorite);
 
   return (

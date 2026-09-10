@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { recipes } from "../lib/mockData";
+import { fetchRecipeBySlug } from "../lib/data";
+import { Recipe } from "../types";
 
 export default function RecipeDetailPage() {
   const { slug } = useParams();
-  const recipe = recipes.find((item) => item.slug === slug) ?? recipes[0];
+  const [recipe, setRecipe] = useState<Recipe | null>(null);
+
+  useEffect(() => {
+    if (!slug) return;
+    void fetchRecipeBySlug(slug).then(setRecipe);
+  }, [slug]);
+
+  if (!recipe) {
+    return <main className="shell pb-28">در حال بارگذاری...</main>;
+  }
 
   return (
     <main className="shell pb-28">

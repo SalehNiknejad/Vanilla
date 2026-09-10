@@ -1,7 +1,15 @@
-import { recipes } from "../lib/mockData";
+import { useEffect, useState } from "react";
 import { RecipeCard } from "../components/RecipeCard";
+import { fetchRecipes } from "../lib/data";
+import { Recipe } from "../types";
 
 export default function RecipesPage() {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+
+  useEffect(() => {
+    void fetchRecipes().then(setRecipes);
+  }, []);
+
   return (
     <main className="shell space-y-6 pb-28">
       <section className="card p-5">
